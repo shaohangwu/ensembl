@@ -14,11 +14,11 @@ class Ensembl:
         elif assembly == "GRCh37":
             self.server = "https://grch37.rest.ensembl.org"
 
-    def get(self, endpoint, params=None):
+    def get(self, endpoint, params):
         response = self.session.get(urljoin(self.server, endpoint), headers=self.headers, params=params)
         return response.json()
 
-    def post(self, endpoint, params=None, json=None):
+    def post(self, endpoint, params, json):
         response = self.session.post(urljoin(self.server, endpoint), headers=self.headers, params=params, json=json)
         return response.json()
 
